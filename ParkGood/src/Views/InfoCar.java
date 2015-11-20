@@ -7,6 +7,9 @@
 package Views;
 
 import static Views.Floor0.*;
+import static parkgood.Main.connection;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
@@ -18,8 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Utilities.*;
 
 /**
  *

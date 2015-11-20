@@ -9,6 +9,10 @@ package Views;
 import static Views.MarkedCarExit.ticketTextField;
 import static Views.mainView.modelActive;
 import static Views.mainView.row;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
@@ -23,9 +27,6 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.*;
 
 /**
  *

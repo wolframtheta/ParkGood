@@ -6,6 +6,10 @@
 
 package Views;
 
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.*;
@@ -17,12 +21,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import parkon.Main;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import parkon.TicketExit;
-import parkon.Utilities;
-import static parkon.Utilities.*;
+
+import parkgood.Main;
+import parkgood.TicketExit;
+import parkgood.Utilities;
 
 /**
  *
@@ -38,7 +40,7 @@ public class NormalCarExit extends javax.swing.JDialog {
         intro = false;
         cashedNormalButton.setText("<html><p>Rebut</p><p>Cobrat F1</p></html>"); 
         printNormalButton.setText("<html><p>Imprimir</p><p>Rebut F2</p></html>"); 
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
             KeyStroke.getKeyStroke(KeyEvent.VK_ACCEPT, 0), "Accept"); 
@@ -379,10 +381,10 @@ public class NormalCarExit extends javax.swing.JDialog {
                             double price = priceCalculator(res.getString("type"));
                             switch(res.getString("type")) {
                                 case "Normal":
-                                    if (price > Double.parseDouble(properties.getProperty("MaxPriceNormal"))) price = Double.parseDouble(properties.getProperty("MaxPriceNormal"));
+                                    if (price > Double.parseDouble(messages.getString("MaxPriceNormal"))) price = Double.parseDouble(messages.getString("MaxPriceNormal"));
                                     break;
                                 case "Gran":
-                                    if (price > Double.parseDouble(properties.getProperty("MaxPriceBig"))) price = Double.parseDouble(properties.getProperty("MaxPriceBig"));
+                                    if (price > Double.parseDouble(messages.getString("MaxPriceBig"))) price = Double.parseDouble(messages.getString("MaxPriceBig"));
                                     break;
                             }
                             

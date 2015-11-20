@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
+
+import static parkgood.Main.connection;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import static parkon.Main.connection;
 
 /**
  *

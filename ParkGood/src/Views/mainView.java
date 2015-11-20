@@ -6,8 +6,17 @@
 
 package Views;
 
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
+import java.awt.Event;
 import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -17,12 +26,10 @@ import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
-import parkon.Car;
-import parkon.Clock;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import parkon.TicketSummaryExit;
-import static parkon.Utilities.*;
+
+import parkgood.Car;
+import parkgood.Clock;
+import parkgood.TicketSummaryExit;
 
 /**
  *
@@ -40,55 +47,44 @@ public class mainView extends javax.swing.JFrame {
     
     public mainView() {
         initComponents();
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "F1"); 
-        getRootPane().getActionMap().put("F1", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                normalButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F2, 0), "F2"); 
-        getRootPane().getActionMap().put("F2", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                bigButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F4, 0), "F4"); 
-        getRootPane().getActionMap().put("F4", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                fixedButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0), "F11"); 
-        getRootPane().getActionMap().put("F11", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                printTicketButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "F5"); 
-        getRootPane().getActionMap().put("F5", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                exitCarsButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F8, 0), "F8"); 
-        getRootPane().getActionMap().put("F8", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                exitMarkedButtonActionPerformed(e);
-            }
-        });
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_F6, 0), "F6"); 
-        getRootPane().getActionMap().put("F6", new AbstractAction(){
-            public void actionPerformed(ActionEvent e) {
-                exitFixedButtonActionPerformed(e);
-            }
-        });
+        
+        getRootPane().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				switch (e.getKeyCode()) {
+				case KeyEvent.VK_F1:
+					normalButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F2:
+					bigButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F4:
+					fixedButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F5:
+					exitCarsButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F6:
+					exitFixedButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F8:
+					exitMarkedButtonActionPerformed();
+					break;
+				case KeyEvent.VK_F11:
+					printTicketButtonActionPerformed();
+					break;
+				default:
+					break;
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {}
+		});
         printTicketButton.setText("<html><p>Imprimir ticket</p><p>a escollir F11</p></html>"); 
         exitCarsButton.setText("<html><p>Normal</p><p>Gran</p><p>Especial F5</p></html>");
         modelActive = new DefaultTableModel();
@@ -261,9 +257,33 @@ public class mainView extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jButton2.setText("Sortir");
+        jButton2.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				jButton2ActionPerformed();
+			}
+		});
+        
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -272,7 +292,7 @@ public class mainView extends javax.swing.JFrame {
         settingsButton.setEnabled(false);
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settingsButtonActionPerformed(evt);
+                settingsButtonActionPerformed();
             }
         });
 
@@ -284,7 +304,7 @@ public class mainView extends javax.swing.JFrame {
         floor1Button.setPreferredSize(new java.awt.Dimension(70, 23));
         floor1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor1ButtonActionPerformed(evt);
+                floor1ButtonActionPerformed();
             }
         });
 
@@ -292,7 +312,7 @@ public class mainView extends javax.swing.JFrame {
         floor0Button.setText("Planta 0");
         floor0Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floor0ButtonActionPerformed(evt);
+                floor0ButtonActionPerformed();
             }
         });
 
@@ -300,7 +320,7 @@ public class mainView extends javax.swing.JFrame {
         floorS1Button.setText("Planta -1");
         floorS1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floorS1ButtonActionPerformed(evt);
+                floorS1ButtonActionPerformed();
             }
         });
 
@@ -356,30 +376,55 @@ public class mainView extends javax.swing.JFrame {
         bigButton.setText("Gran F2");
         bigButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bigButtonActionPerformed(evt);
+                bigButtonActionPerformed();
             }
         });
 
         normalButton.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         normalButton.setText("Normal F1");
-        normalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                normalButtonActionPerformed(evt);
-            }
-        });
+        normalButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				normalButtonActionPerformed();				
+			}
+		});
 
         fixedButton.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         fixedButton.setText("Adelantat F4");
         fixedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fixedButtonActionPerformed(evt);
+                fixedButtonActionPerformed();
             }
         });
 
         printTicketButton.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         printTicketButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printTicketButtonActionPerformed(evt);
+                printTicketButtonActionPerformed();
             }
         });
 
@@ -471,14 +516,14 @@ public class mainView extends javax.swing.JFrame {
         exitFixedButton.setPreferredSize(new java.awt.Dimension(73, 25));
         exitFixedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitFixedButtonActionPerformed(evt);
+                exitFixedButtonActionPerformed();
             }
         });
 
         exitCarsButton.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         exitCarsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitCarsButtonActionPerformed(evt);
+                exitCarsButtonActionPerformed();
             }
         });
 
@@ -487,7 +532,7 @@ public class mainView extends javax.swing.JFrame {
         exitMarkedButton.setOpaque(false);
         exitMarkedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMarkedButtonActionPerformed(evt);
+                exitMarkedButtonActionPerformed();
             }
         });
 
@@ -615,22 +660,22 @@ public class mainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void floor1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor1ButtonActionPerformed
+    private void floor1ButtonActionPerformed() {//GEN-FIRST:event_floor1ButtonActionPerformed
         Floor1 floor1 = new Floor1();
         floor1.setVisible(true);
     }//GEN-LAST:event_floor1ButtonActionPerformed
 
-    private void floor0ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floor0ButtonActionPerformed
+    private void floor0ButtonActionPerformed() {//GEN-FIRST:event_floor0ButtonActionPerformed
         Floor0 floor0 = new Floor0();
         floor0.setVisible(true);
     }//GEN-LAST:event_floor0ButtonActionPerformed
 
-    private void floorS1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorS1ButtonActionPerformed
+    private void floorS1ButtonActionPerformed() {//GEN-FIRST:event_floorS1ButtonActionPerformed
         FloorS1 floorS1 = new FloorS1();
         floorS1.setVisible(true);
     }//GEN-LAST:event_floorS1ButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed() {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             TicketSummaryExit TSE = new TicketSummaryExit();
             String query = "DELETE FROM `" + DBEntry + "`WHERE `active` = '0'";
@@ -644,7 +689,7 @@ public class mainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void bigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bigButtonActionPerformed
+    private void bigButtonActionPerformed() {//GEN-FIRST:event_bigButtonActionPerformed
         try {
             Car car = new Car("Gran");
         } catch (SQLException ex) {
@@ -652,7 +697,7 @@ public class mainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bigButtonActionPerformed
     
-    private void normalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalButtonActionPerformed
+    private void normalButtonActionPerformed() {//GEN-FIRST:event_normalButtonActionPerformed
         try {
             Car car = new Car("Normal");
         } catch (SQLException ex) {
@@ -661,22 +706,22 @@ public class mainView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_normalButtonActionPerformed
 
-    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
+    private void settingsButtonActionPerformed() {//GEN-FIRST:event_settingsButtonActionPerformed
         Settings settings = new Settings();
         settings.setVisible(true);
     }//GEN-LAST:event_settingsButtonActionPerformed
 
-    private void printTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printTicketButtonActionPerformed
+    private void printTicketButtonActionPerformed() {//GEN-FIRST:event_printTicketButtonActionPerformed
         PrintTicket PT = new PrintTicket();
         PT.setVisible(true);
     }//GEN-LAST:event_printTicketButtonActionPerformed
 
-    private void exitCarsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitCarsButtonActionPerformed
+    private void exitCarsButtonActionPerformed() {//GEN-FIRST:event_exitCarsButtonActionPerformed
         NormalCarExit nCE = new NormalCarExit();
         nCE.setVisible(true);
     }//GEN-LAST:event_exitCarsButtonActionPerformed
 
-    private void fixedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fixedButtonActionPerformed
+    private void fixedButtonActionPerformed() {//GEN-FIRST:event_fixedButtonActionPerformed
         
         try {
             Car car = new Car("Adelantat");
@@ -685,12 +730,12 @@ public class mainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fixedButtonActionPerformed
 
-    private void exitMarkedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMarkedButtonActionPerformed
+    private void exitMarkedButtonActionPerformed() {//GEN-FIRST:event_exitMarkedButtonActionPerformed
         MarkedCarExit MCE = new MarkedCarExit();
         MCE.setVisible(true);
     }//GEN-LAST:event_exitMarkedButtonActionPerformed
 
-    private void exitFixedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitFixedButtonActionPerformed
+    private void exitFixedButtonActionPerformed() {//GEN-FIRST:event_exitFixedButtonActionPerformed
         FixedCarExit FCE = new FixedCarExit();
         FCE.setVisible(true);
     }//GEN-LAST:event_exitFixedButtonActionPerformed

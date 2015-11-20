@@ -6,6 +6,10 @@
 package Views;
 
 import static Views.mainView.modelActive;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -23,9 +27,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.*;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -62,7 +65,7 @@ public class Extra extends javax.swing.JFrame {
                 break;
         }
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(

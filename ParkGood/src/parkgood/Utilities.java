@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import Views.Floor0;
 import static Views.Floor0.*;
@@ -18,7 +18,12 @@ import Views.NormalCarExit;
 import Views.mainView;
 import com.mysql.jdbc.Messages;
 import java.awt.Color;
+import java.awt.Image;
+
 import static java.lang.Math.ceil;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -26,13 +31,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JTable;
-import static parkon.Main.connection;
-import static parkon.Main.st;
 
 /**
  *
@@ -57,6 +63,7 @@ public class Utilities {
     public static int EXTRA1 = 1;
     public static int EXTRA0 = 0;
     public static int EXTRAS1 = -1;
+    public static Image imageParkGood = new ImageIcon(Utilities.class.getResource("/images/car-icon.png")).getImage();
     
     public Properties getProperties() {
         try {
@@ -72,7 +79,7 @@ public class Utilities {
  
     }
     
-    public static Properties properties = new MyProperties().getProperties();
+    public static ResourceBundle messages = ResourceBundle.getBundle("parkgood.messages");
     
     
     public static void hideColumn(int i, JTable Table) {
@@ -455,23 +462,23 @@ public class Utilities {
     
     
     public static double IVA() throws SQLException {
-        return Double.parseDouble(properties.getProperty("IVA"));
+        return Double.parseDouble(messages.getString("IVA"));
     }
     
     public static double NormalPriceFirst() throws SQLException {
-        return Double.parseDouble(properties.getProperty("NormalPriceFirst"));
+        return Double.parseDouble(messages.getString("NormalPriceFirst"));
     }
     
     public static double NormalPriceSecond() throws SQLException {
-        return Double.parseDouble(properties.getProperty("NormalPriceSecond"));
+        return Double.parseDouble(messages.getString("NormalPriceSecond"));
     }
     
     public static double BigPriceFirst() throws SQLException {
-        return Double.parseDouble(properties.getProperty("BigPriceFirst"));
+        return Double.parseDouble(messages.getString("BigPriceFirst"));
     }
     
     public static double BigPriceSecond() throws SQLException {
-        return Double.parseDouble(properties.getProperty("BigPriceSecond"));
+        return Double.parseDouble(messages.getString("BigPriceSecond"));
     }
     
     

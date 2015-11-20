@@ -10,6 +10,9 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import static java.lang.Math.random;
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,8 +20,8 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-import static parkon.Main.st;
-import static parkon.Utilities.*;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -32,7 +35,7 @@ public class Floor1 extends javax.swing.JFrame {
     
     public Floor1() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(

@@ -6,6 +6,11 @@
 
 package Views;
 
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBEntry;
+import static parkgood.Utilities.DBLogin;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -17,10 +22,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.DBEntry;
-import static parkon.Utilities.DBLogin;
 
 /**
  *

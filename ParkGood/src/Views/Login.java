@@ -6,6 +6,9 @@
 
 package Views;
 
+import static parkgood.Main.*;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.*;
@@ -19,9 +22,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.KeyStroke;
-import parkon.Connect;
-import static parkon.Main.*;
-import static parkon.Utilities.*;
+
+import parkgood.Connect;
 
 /**
  *

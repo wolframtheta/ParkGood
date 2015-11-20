@@ -11,6 +11,10 @@ import static Views.NormalCarExit.entryTimeLabel;
 import static Views.NormalCarExit.exitDateLabel;
 import static Views.NormalCarExit.exitTimeLabel;
 import static Views.NormalCarExit.priceLabel;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBEntry;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -23,12 +27,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import parkon.TicketExit;
-import parkon.TicketFixedExit;
-import parkon.TicketMarkedExit;
-import static parkon.Utilities.DBEntry;
+
+import parkgood.TicketExit;
+import parkgood.TicketFixedExit;
+import parkgood.TicketMarkedExit;
 
 /**
  *

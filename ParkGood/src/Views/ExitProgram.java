@@ -6,6 +6,10 @@
 
 package Views;
 
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBLogin;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -17,9 +21,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.DBLogin;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -32,7 +35,7 @@ public class ExitProgram extends javax.swing.JFrame {
      */
     public ExitProgram() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
             KeyStroke.getKeyStroke(KeyEvent.VK_ACCEPT, 0), "Accept"); 

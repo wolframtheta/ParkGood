@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import Views.Floor1;
 import Views.Login;
 import Views.MarkedCarExit;
 import Views.NormalCarExit;
-import Views.Presentation;
+import Views.SplashScreen;
 import Views.mainView;
 import static java.lang.Math.ceil;
+import static parkgood.Utilities.*;
+
 import java.sql.*;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
@@ -20,7 +22,6 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import static parkon.Utilities.*;
 
 /**
  *
@@ -47,14 +48,14 @@ public class Main {
         st = connection.createStatement();
         st.executeUpdate(query);*/
         
-        Presentation presentation = new Presentation();
-        presentation.setVisible(true);
+        SplashScreen splashScreen = new SplashScreen();
+        splashScreen.setVisible(true);
         try {
             Thread.sleep(10000);
         } catch (Exception e) {
             
         }
-        presentation.setVisible(false);
+        splashScreen.setVisible(false);
         Login login = new Login();
         login.setVisible(true);
     }

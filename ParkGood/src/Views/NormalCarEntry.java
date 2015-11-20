@@ -8,6 +8,8 @@ package Views;
 
 import javax.swing.ImageIcon;
 
+import parkgood.Utilities;
+
 /**
  *
  * @author Xavier
@@ -19,7 +21,7 @@ public class NormalCarEntry extends javax.swing.JDialog {
      */
     public NormalCarEntry() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
     }
 

@@ -6,8 +6,14 @@
 
 package Views;
 
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,8 +21,8 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-import static parkon.Main.st;
-import static parkon.Utilities.*;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -29,16 +35,27 @@ public class FloorS1 extends javax.swing.JFrame {
      */
     public FloorS1() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
-        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "Esc"); 
-        getRootPane().getActionMap().put("Esc", new AbstractAction(){ 
-            public void actionPerformed(ActionEvent e)
-            {
-                setVisible(false);
-            }
-        });
+        
+        getRootPane().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				switch (e.getKeyCode()) {
+				case KeyEvent.VK_ESCAPE:
+					setVisible(false);
+					break;
+				
+				}
+			}
+		});
         updateFloorS1();
     }
 
@@ -116,6 +133,25 @@ public class FloorS1 extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         place1.setText("1");
+        place1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+			}
+		});
         place1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 place1ActionPerformed(evt);

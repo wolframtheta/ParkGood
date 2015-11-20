@@ -4,18 +4,20 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import Views.NormalCarEntry;
 import Views.FixedCarEntry;
 import Views.mainView;
+
+import static parkgood.Main.*;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import static parkon.Main.*;
-import static parkon.Utilities.*;
 
 /**
  *

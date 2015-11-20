@@ -6,6 +6,9 @@
 package Views;
 
 import static Views.Extra.*;
+import static parkgood.Main.*;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -17,8 +20,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.*;
-import static parkon.Utilities.*;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -36,7 +39,7 @@ public class CreateExtraPlace extends javax.swing.JFrame {
         try {
             mode = i;
             initComponents();
-            this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+            this.setIconImage(Utilities.imageParkGood);
             this.setLocationRelativeTo(null);
             
             getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(

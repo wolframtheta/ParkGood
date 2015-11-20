@@ -6,6 +6,9 @@
 
 package Views;
 
+import static parkgood.Main.st;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -15,10 +18,10 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-import parkon.Car;
-import static parkon.Main.st;
-import parkon.TicketFixedEntry;
-import static parkon.Utilities.*;
+
+import parkgood.Car;
+import parkgood.TicketFixedEntry;
+import parkgood.Utilities;
 
 /**
  *
@@ -31,7 +34,7 @@ public class FixedCarEntry extends javax.swing.JFrame {
      */
     public FixedCarEntry() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
             KeyStroke.getKeyStroke(KeyEvent.VK_ACCEPT, 0), "Accept"); 

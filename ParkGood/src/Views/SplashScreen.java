@@ -8,18 +8,22 @@ package Views;
 
 import javax.swing.ImageIcon;
 
+import com.mysql.jdbc.Messages;
+
+import parkgood.Utilities;
+
 /**
  *
  * @author Xavier
  */
-public class Presentation extends javax.swing.JDialog {
+public class SplashScreen extends javax.swing.JDialog {
 
     /**
      * Creates new form Presentation
      */
-    public Presentation() {
+    public SplashScreen() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
     }
 
@@ -46,8 +50,7 @@ public class Presentation extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 255, 0));
-        jLabel1.setText("ParkGood");
-
+        jLabel1.setText(Messages.getString("SplashScreen.0"));
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel2.setText("Autoritzat per a Garatge Sala");
 

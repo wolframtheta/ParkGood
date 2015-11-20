@@ -14,6 +14,11 @@ import static Views.InfoCar.PlateTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import static java.lang.System.exit;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBLogin;
+import static parkgood.Utilities.DBPlaces;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,10 +29,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.DBLogin;
-import static parkon.Utilities.DBPlaces;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -40,7 +43,7 @@ public class EditExtraPlace extends javax.swing.JFrame {
         num = id;
         try {
             initComponents();
-            this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+            this.setIconImage(Utilities.imageParkGood);
             this.setLocationRelativeTo(null);
             
             getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(

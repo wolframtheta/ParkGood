@@ -7,6 +7,10 @@
 package Views;
 
 import static Views.MarkedCarExit.ticketTextField;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBLogin;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
@@ -19,9 +23,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.DBLogin;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -50,7 +53,7 @@ public class DeleteUser extends javax.swing.JFrame {
                 setVisible(false);
             }
         });
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
     }
 

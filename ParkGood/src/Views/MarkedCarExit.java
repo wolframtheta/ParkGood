@@ -6,6 +6,9 @@
 
 package Views;
 
+import static parkgood.Main.*;
+import static parkgood.Utilities.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
@@ -22,11 +25,11 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import parkon.Main;
-import static parkon.Main.*;
-import parkon.TicketExit;
-import parkon.TicketMarkedExit;
-import static parkon.Utilities.*;
+
+import parkgood.Main;
+import parkgood.TicketExit;
+import parkgood.TicketMarkedExit;
+import parkgood.Utilities;
 
 /**
  *
@@ -41,7 +44,7 @@ public class MarkedCarExit extends javax.swing.JDialog {
         intro = false;
         cashedNormalButton.setText("<html><p>Rebut</p><p>Cobrat F1</p></html>"); 
         printNormalButton.setText("<html><p>Imprimir</p><p>Rebut F2</p></html>"); 
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
             KeyStroke.getKeyStroke(KeyEvent.VK_ACCEPT, 0), "Accept"); 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import Views.NormalCarExit;
 import java.awt.Font;
@@ -22,13 +22,14 @@ import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import static java.lang.Math.round;
+import static parkgood.Utilities.IVA;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import static parkon.Utilities.IVA;
 
 /**
  *

@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
-import Views.NormalCarExit;
-import Views.FixedCarEntry;
+import Views.NormalCarEntry;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.Printable;
@@ -25,7 +22,8 @@ import java.awt.print.PrinterJob;
  *
  * @author Xavier
  */
-public class TicketFixedEntry implements Printable {
+public class TicketNormalEntry implements Printable {
+    
     public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
  
         if (page > 0) { /* We have only one page, and 'page' is zero-based */
@@ -42,7 +40,7 @@ public class TicketFixedEntry implements Printable {
         g.setFont(new Font("asdf", Font.BOLD, 14));
         g.drawString("GARATGE SALA" , 0, 16);
         g.setFont(new Font("asdf", Font.PLAIN, 9));
-        g.drawString("C/ Galileu, 298, Barcelona", 110, 12);
+        g.drawString("C/ Galileo, 298, Barcelona", 110, 12);
         g.drawString("08028 Tel 93 490 72 67", 110, 23);
         g.drawString("Resguard dipòsit", 110, 70);
         g.drawString("de vehicle", 120, 80);
@@ -52,25 +50,21 @@ public class TicketFixedEntry implements Printable {
         g.drawString("HORA ENTRADA", 0, 90);
         g.drawString("NUMERO DE VEHICLE", 0, 130);
         g.setFont(new Font("asdf", Font.BOLD, 13));
-        g.drawString(FixedCarEntry.entryDateLabel.getText(), 0, 70);
-        g.drawString(FixedCarEntry.entryTimeLabel.getText(), 0, 110);
-        g.drawString(FixedCarEntry.ticketLabel.getText(), 0, 150);
+        g.drawString(NormalCarEntry.entryDate.getText(), 0, 70);
+        g.drawString(NormalCarEntry.entryTime.getText(), 0, 110);
+        g.drawString(NormalCarEntry.entryTicketLabel.getText(), 0, 150);
         g.setFont(new Font("asdf", Font.BOLD, 10));
         g.drawString("AQUEST TICKET ÉS OBLIGATORI", 20, 170);
         g.drawString("PRESENTARLO AL RETIRAR EL VEHICLE", 0, 180);
-        g.setFont(new Font("asdf", Font.ITALIC, 7));
+        g.setFont(new Font("asdf", Font.ITALIC, 8));
         g.drawString("EL PROPIETARI DEIXA", 110, 100);
-        g.drawString("LES CLAUS DEL VEHICLE", 110, 110);
-        g.drawString("COBRAR TARIFA", 130, 130);
-        g.setFont(new Font("asdf", Font.BOLD + Font.ITALIC, 13));
-        g.drawString(FixedCarEntry.priceTextField.getText() + " €", 150, 150);
+        g.drawString("LES CLAUS DEL VEHICLE", 100, 110);
         g.setFont(new Font("asdf", Font.PLAIN, 11));
         g.drawString("TICKET ENTRADA", 100, 50);
-        /* tell the caller that this page is part of the printed document */
         return PAGE_EXISTS;
     }
  
-    public TicketFixedEntry () {
+    public TicketNormalEntry () {
         PrinterJob job = PrinterJob.getPrinterJob();
         
         PageFormat pf0 = new PageFormat();
@@ -84,9 +78,13 @@ public class TicketFixedEntry implements Printable {
         try {
             job.print();
             job.print();
-            job.print();
         } catch (PrinterException ex) {
+         System.out.printf("asdfasd");
         }
     }
 
+    
+     
+    
+    
 }

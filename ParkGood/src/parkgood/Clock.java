@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import static Views.mainView.clockLabel;
 import static Views.mainView.dateLabel;

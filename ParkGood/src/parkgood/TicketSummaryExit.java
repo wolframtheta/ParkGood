@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package parkon;
+package parkgood;
 
 import Views.FixedCarExit;
 import static Views.mainView.*;
@@ -16,6 +16,12 @@ import java.awt.print.Paper;
 import java.awt.print.Printable;
 import static java.awt.print.Printable.NO_SUCH_PAGE;
 import static java.awt.print.Printable.PAGE_EXISTS;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
+import static parkgood.Utilities.DBEntry;
+import static parkgood.Utilities.IVA;
+import static parkgood.Utilities.round;
+
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
@@ -23,11 +29,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static parkon.Main.connection;
-import static parkon.Main.st;
-import static parkon.Utilities.DBEntry;
-import static parkon.Utilities.IVA;
-import static parkon.Utilities.round;
 
 /**
  *

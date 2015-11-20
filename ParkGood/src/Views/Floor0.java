@@ -7,6 +7,8 @@
 package Views;
 
 import static Views.InfoCar.*;
+import static parkgood.Utilities.*;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -19,7 +21,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-import static parkon.Utilities.*;
+
+import parkgood.Utilities;
 
 /**
  *
@@ -35,7 +38,7 @@ public class Floor0 extends javax.swing.JFrame {
     public static Integer id = 0;
     public Floor0() {
         initComponents();
-        this.setIconImage(new ImageIcon(this.getClass().getResource("/images/car-icon.png")).getImage());
+        this.setIconImage(Utilities.imageParkGood);
         this.setLocationRelativeTo(null);
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
             KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "Esc"); 
