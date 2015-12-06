@@ -10,6 +10,7 @@ import static parkgood.Main.connection;
 import static parkgood.Main.st;
 import static parkgood.Utilities.DBEntry;
 import static parkgood.Utilities.DBLogin;
+import static parkgood.Utilities.messages;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -62,7 +63,8 @@ public class Register extends javax.swing.JFrame {
         passwordTextField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
 
-        setTitle("ParkGood 2014 - Nou Usuari");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.14"));
+
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Usuari");
@@ -152,7 +154,7 @@ public class Register extends javax.swing.JFrame {
                 } 
                 else JOptionPane.showMessageDialog(null, "Usuari ja registrat");
             }
-            else JOptionPane.showMessageDialog(null, "La contrassenya han de ser 4 dÃ­gits");
+            else JOptionPane.showMessageDialog(null, "La contrassenya han de ser 4 dígits");
         } catch (SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }

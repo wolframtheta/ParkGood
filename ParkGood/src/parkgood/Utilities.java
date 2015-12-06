@@ -18,11 +18,14 @@ import Views.NormalCarExit;
 import Views.mainView;
 import com.mysql.jdbc.Messages;
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Image;
+import java.awt.Window;
 
 import static java.lang.Math.ceil;
 import static parkgood.Main.connection;
 import static parkgood.Main.st;
+import static parkgood.Utilities.messages;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -612,4 +615,7 @@ public class Utilities {
         }
         return round(price, 2);
     }
+  
 }
+
+

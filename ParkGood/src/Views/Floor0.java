@@ -60,7 +60,7 @@ public class Floor0 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	setTitle(messages.getString("Application.0") + messages.getString("Application.9"));
         jLabel1 = new javax.swing.JLabel();
         place1 = new javax.swing.JButton();
         place2 = new javax.swing.JButton();

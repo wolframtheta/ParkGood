@@ -70,7 +70,7 @@ public class FixedCarEntry extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	setTitle(messages.getString("Application.0") + messages.getString("Application.12"));
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         entryTimeLabel = new javax.swing.JLabel();
@@ -118,7 +118,7 @@ public class FixedCarEntry extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel9.setText("â‚¬");
+        jLabel9.setText("€");
 
         jButton1.setText("Imprimir Ticket F1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

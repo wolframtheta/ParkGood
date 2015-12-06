@@ -57,7 +57,7 @@ public class Floor1 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	setTitle(messages.getString("Application.0") + messages.getString("Application.8"));
         place1 = new javax.swing.JButton();
         place2 = new javax.swing.JButton();
         place3 = new javax.swing.JButton();
@@ -619,11 +619,7 @@ public class Floor1 extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
         jLabel1.setText("PLANTA 1");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
+       
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         pack();
@@ -873,10 +869,7 @@ public class Floor1 extends javax.swing.JFrame {
         readInfo(evt.getActionCommand(), 100);
     }//GEN-LAST:event_place61ActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Extra E = new Extra(1);
-        E.setVisible(true);
-    }//GEN-LAST:event_jLabel1MouseClicked
+   
 
     
 

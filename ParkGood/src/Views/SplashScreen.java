@@ -43,25 +43,25 @@ public class SplashScreen extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("ParkGood 2014");
+        setTitle(parkgood.Messages.getString("Application.0"));
         setBackground(java.awt.Color.white);
         setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         setType(java.awt.Window.Type.POPUP);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 255, 0));
-        jLabel1.setText(Messages.getString("SplashScreen.0"));
+        jLabel1.setText(Utilities.messages.getString("SplashScreen.0"));
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel2.setText("Autoritzat per a Garatge Sala");
+        jLabel2.setText(Utilities.messages.getString("SplashScreen.1"));
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel3.setText("Windows/Mac OS/Linux");
+        jLabel3.setText(Utilities.messages.getString("SplashScreen.2"));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel4.setText("Versió 1.0 - 2014");
+        jLabel4.setText(Utilities.messages.getString("SplashScreen.3"));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel5.setText("© Xavier Marquès Ramos");
+        jLabel5.setText(Utilities.messages.getString("SplashScreen.4"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

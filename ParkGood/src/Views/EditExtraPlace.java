@@ -18,6 +18,7 @@ import static parkgood.Main.connection;
 import static parkgood.Main.st;
 import static parkgood.Utilities.DBLogin;
 import static parkgood.Utilities.DBPlaces;
+import static parkgood.Utilities.messages;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,6 +99,7 @@ public class EditExtraPlace extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        setTitle(messages.getString("Application.0") + messages.getString("Application.11"));
 
         MoreTextArea.setColumns(20);
         MoreTextArea.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -125,7 +127,7 @@ public class EditExtraPlace extends javax.swing.JFrame {
         jLabel2.setText("Cotxe");
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel3.setText("MatrÃ­cula");
+        jLabel3.setText("Matrícula");
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel4.setText("Altres");

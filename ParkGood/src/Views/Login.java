@@ -63,7 +63,7 @@ public class Login extends javax.swing.JFrame {
         ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("ParkGood 2014 - Login");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.2"));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel1.setText("Usuari");

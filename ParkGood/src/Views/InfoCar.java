@@ -71,7 +71,7 @@ public class InfoCar extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
-        setTitle("ParkGood 2014 - Informació plaça");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.13"));
 
         NameTextField.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         NameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -88,8 +88,7 @@ public class InfoCar extends javax.swing.JFrame {
         jLabel2.setText("Nom");
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel3.setText("Matrícula");
-
+        jLabel3.setText("Matr�cula");
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel4.setText("Cotxe");
 
@@ -110,7 +109,7 @@ public class InfoCar extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel5.setText("Plaça");
+        jLabel5.setText("Pla�a");
 
         PlaceLabel.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
 

@@ -108,7 +108,8 @@ public class NormalCarExit extends javax.swing.JDialog {
         cashedNormalButton = new javax.swing.JButton();
         printNormalButton = new javax.swing.JButton();
 
-        setTitle("ParkGood 2014 - Sortida cotxe (normal/gran)");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.4"));
+
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel1.setText("INTRODUEIX NOMBRE DE VEHICLE");
@@ -401,7 +402,7 @@ public class NormalCarExit extends javax.swing.JDialog {
                         }
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "Aquest nÃºmero de ticket no existeix");
+                        JOptionPane.showMessageDialog(null, "Aquest número de ticket no existeix");
                         this.setVisible(false); 
                     }
                 }

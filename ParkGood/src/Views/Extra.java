@@ -53,16 +53,6 @@ public class Extra extends javax.swing.JFrame {
                 MIN = 500;
                 MAX = 699;
                 break;
-                
-            case 1:
-                MIN = 700;
-                MAX = 999;
-                break;
-                
-            case -1:
-                MIN = 1000;
-                MAX = 1199;
-                break;
         }
         initComponents();
         this.setIconImage(Utilities.imageParkGood);
@@ -81,7 +71,7 @@ public class Extra extends javax.swing.JFrame {
         modelExtra.addColumn("ID");
         modelExtra.addColumn("Nom");
         modelExtra.addColumn("Cotxe");
-        modelExtra.addColumn("MatrÃ­cula");
+        modelExtra.addColumn("Matrícula");
         modelExtra.addColumn("Altres");
         
         hideColumn(COL_ID, ExtraTable);
@@ -120,7 +110,7 @@ public class Extra extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	setTitle(messages.getString("Application.0") + messages.getString("Application.11"));
         jScrollPane1 = new javax.swing.JScrollPane();
         ExtraTable = new javax.swing.JTable();
         CreateButton = new javax.swing.JButton();
@@ -199,7 +189,7 @@ public class Extra extends javax.swing.JFrame {
         jScrollPane2.setViewportView(MoreTextArea);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel1.setText("MÃ©s");
+        jLabel1.setText("Més");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

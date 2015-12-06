@@ -24,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 
@@ -252,7 +253,7 @@ public class mainView extends javax.swing.JFrame {
         dateLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("ParkGood 2014 - Inici");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.3"));
         setIconImages(null);
 
         jButton2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -281,14 +282,10 @@ public class mainView extends javax.swing.JFrame {
 			}
 		});
         
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed();
-            }
-        });
+        
 
         settingsButton.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        settingsButton.setText("ConfiguraciÃ³");
+        settingsButton.setText("Configuració");
         settingsButton.setEnabled(false);
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,7 +461,7 @@ public class mainView extends javax.swing.JFrame {
             activeTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jTabbedPane4.addTab("DipÃ²sit", jScrollPane3);
+        jTabbedPane4.addTab("Dipòsit", jScrollPane3);
 
         historyTable.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         historyTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -681,6 +678,16 @@ public class mainView extends javax.swing.JFrame {
             String query = "DELETE FROM `" + DBEntry + "`WHERE `active` = '0'";
             st = connection.createStatement();
             st.execute(query);
+            if (mainView.modelActive.getRowCount() == 0) {
+            	query = "DELETE FROM `" + DBEntry + "`";
+                st = connection.createStatement();
+                st.execute(query);
+	            query = "ALTER TABLE `" + DBEntry + "` auto_increment = 1";
+	            st = connection.createStatement();
+	            st.execute(query);
+            }else {
+            	JOptionPane.showMessageDialog(null, "No s'han pogut borrar les entrades! Encara hi han cotxes actius");
+            }
             Login login = new Login();
             login.setVisible(true);
             this.setVisible(false);

@@ -10,6 +10,7 @@ import static Views.MarkedCarExit.ticketTextField;
 import static parkgood.Main.connection;
 import static parkgood.Main.st;
 import static parkgood.Utilities.DBLogin;
+import static parkgood.Utilities.messages;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -70,7 +71,8 @@ public class DeleteUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
 
-        setTitle("ParkGood 2014 - Eliminar Usuari");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.15"));
+
 
         IDUserTextField.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         IDUserTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -123,13 +125,19 @@ public class DeleteUser extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
+        	if (IDUserTextField.getText().equals("1")) {
+            	JOptionPane.showMessageDialog(null, "El usuari Admin no es pot eliminar");
+            	return;
+            
+            }
             st = connection.createStatement();
+            
             String query = "SELECT COUNT(`id_user`) AS `user` FROM `" + DBLogin + "` WHERE `id_user` = '" + IDUserTextField.getText() + "'";
             ResultSet res = st.executeQuery(query);
             res.next();
             int info = 0;
             if (res.getInt("user") > 0)
-                info = JOptionPane.showConfirmDialog(null, "Est√†s segur d'eliminar aquest usuari?", "Confirmaci√≥", JOptionPane.YES_NO_OPTION);
+                info = JOptionPane.showConfirmDialog(null, "Est‡s segur d'eliminar aquest usuari?", "ConfirmaciÛ", JOptionPane.YES_NO_OPTION);
             else 
                 JOptionPane.showMessageDialog(null, "No existeix cap usuari amb aquest ID");
             if (info == JOptionPane.YES_OPTION) {

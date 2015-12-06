@@ -172,27 +172,15 @@ public class CreateExtraPlace extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
-        int MAX = 0;
-        int MIN = 0;
+        int MAX = 699;
+        int MIN = 500;
         switch(mode) {
-            
-            case 0:
+            case 1:
                 MAX = 699;
                 MIN = 500;
                 break;
-                
-            case 1:
-                MAX = 999;
-                MIN = 700;
-                break;
-                
-            case -1:
-                MAX = 1199;
-                MIN = 1000;
-                break;
         }
         if (!NameTextField.getText().equals("")) {
-            System.out.print(MAX + " " + MIN);
             try {
                 String query = "SELECT `ID`, COUNT(*) AS num FROM `" + DBPlaces + "` WHERE `ID` >= " + MIN + " AND `ID` <= " + MAX + " ORDER BY `ID` DESC LIMIT 1";
                 st = connection.createStatement();

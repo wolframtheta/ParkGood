@@ -14,6 +14,7 @@ import static Views.NormalCarExit.priceLabel;
 import static parkgood.Main.connection;
 import static parkgood.Main.st;
 import static parkgood.Utilities.DBEntry;
+import static parkgood.Utilities.messages;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -75,10 +76,11 @@ public class PrintTicket extends javax.swing.JFrame {
         TicketTextField = new javax.swing.JTextField();
         PrintButton = new javax.swing.JButton();
 
-        setTitle("ParkGood 2014 - Imprimir ticket");
+
+    	setTitle(messages.getString("Application.0") + messages.getString("Application.7"));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel1.setText("NÃºmero ticket");
+        jLabel1.setText("Número ticket");
 
         TicketTextField.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         TicketTextField.addActionListener(new java.awt.event.ActionListener() {

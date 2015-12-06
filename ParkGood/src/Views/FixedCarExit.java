@@ -111,9 +111,9 @@ public class FixedCarExit extends javax.swing.JDialog {
         cashedNormalButton = new javax.swing.JButton();
         printNormalButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        minutesLabel = new javax.swing.JLabel();
+        minutesLabel = new javax.swing.JLabel();setTitle(messages.getString("Application.0") + messages.getString("Application.6"));
 
-        setTitle("ParkGood 2014 - Sortida cotxe (adelantat)");
+        
         setPreferredSize(new java.awt.Dimension(957, 603));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N

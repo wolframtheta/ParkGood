@@ -111,7 +111,8 @@ public class MarkedCarExit extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         exitDateLabel = new javax.swing.JLabel();
 
-        setTitle("ParkGood 2014 - Sortida cotxe (segellat)");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.5"));
+
 
         printNormalButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         printNormalButton.addActionListener(new java.awt.event.ActionListener() {

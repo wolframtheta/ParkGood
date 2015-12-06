@@ -171,7 +171,7 @@ public class Settings extends javax.swing.JFrame {
         DeleteCounterCheckBox = new javax.swing.JCheckBox();
         DeleteCounterButton = new javax.swing.JButton();
 
-        setTitle("ParkGood 2014 - Configuraci√≥");
+        setTitle(messages.getString("Application.0") + messages.getString("Application.1"));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel1.setText("IVA");
@@ -206,16 +206,16 @@ public class Settings extends javax.swing.JFrame {
         SecondBigTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel6.setText("‚Ç¨/min");
+        jLabel6.setText("Ä/min");
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel7.setText("‚Ç¨/min");
+        jLabel7.setText("Ä/min");
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel8.setText("‚Ç¨/min");
+        jLabel8.setText("Ä/min");
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel9.setText("‚Ç¨/min");
+        jLabel9.setText("Ä/min");
 
         IVATextField.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         IVATextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -400,7 +400,7 @@ public class Settings extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Empleats", jPanel2);
 
-        SettingsCheckBox.setText("Configuraci√≥");
+        SettingsCheckBox.setText("ConfiguraciÛ");
         SettingsCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SettingsCheckBoxActionPerformed(evt);
@@ -547,11 +547,11 @@ public class Settings extends javax.swing.JFrame {
                     st = connection.createStatement();
                     ResultSet res = st.executeQuery(query);
                     res.next();
-                        SettingsCheckBox.setSelected(res.getBoolean("settings"));
-                        AddDeleteCheckBox.setSelected(res.getBoolean("add_delete_users"));
-                        ExitCheckBox.setSelected(res.getBoolean("exit"));
-                        PlacesCheckBox.setSelected(res.getBoolean("edit_places"));
-                        DeleteCounterCheckBox.setSelected(res.getBoolean("delete_counter"));
+                    SettingsCheckBox.setSelected(res.getBoolean("settings"));
+                    AddDeleteCheckBox.setSelected(res.getBoolean("add_delete_users"));
+                    ExitCheckBox.setSelected(res.getBoolean("exit"));
+                    PlacesCheckBox.setSelected(res.getBoolean("edit_places"));
+                    DeleteCounterCheckBox.setSelected(res.getBoolean("delete_counter"));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
@@ -581,9 +581,10 @@ public class Settings extends javax.swing.JFrame {
 
     private void DeleteCounterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCounterButtonActionPerformed
         try {
-            int info = JOptionPane.showConfirmDialog(null, "Est√†s segur d'eliminar les entrades?", "Confirmaci√≥", JOptionPane.YES_NO_OPTION);
+            int info = JOptionPane.showConfirmDialog(null, "Est‡s segur d'eliminar les entrades?", "ConfirmaciÛ", JOptionPane.YES_NO_OPTION);
             if (info == JOptionPane.YES_OPTION) {
-                String query = "DELETE FROM `" + DBEntry + "`";
+                if (mainView.modelHistory.getRowCount() == 0 && mainView.modelActive.getRowCount() == 0) {
+            	String query = "DELETE FROM `" + DBEntry + "`";
                 st = connection.createStatement();
                 st.execute(query);
                 query = "ALTER TABLE `" + DBEntry + "` auto_increment = 1";
@@ -594,6 +595,10 @@ public class Settings extends javax.swing.JFrame {
                 mainView.resetActiveTable();
                 mainView.createActiveTable();
                 JOptionPane.showMessageDialog(null, "Entrades borrades!");
+                }
+                else {
+                	JOptionPane.showMessageDialog(null, "No s'han pogut borrar les entrades! Encara hi han cotxes actius o en el historial.");
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
