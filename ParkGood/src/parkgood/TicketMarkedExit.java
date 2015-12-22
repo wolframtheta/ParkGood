@@ -55,8 +55,9 @@ public class TicketMarkedExit implements Printable {
         g.drawString("Telf: 93 490 72 67", 130, 34);
         g.drawString("GARATGE SALA ROSTES, S.L.", 0, 25);
         g.drawString("CIF. B60908795", 0, 35);
-        g.drawString("NÃºmero Rebut:  " + MarkedCarExit.ticketTextField.getText(), 80, 80);
-        g.drawString("GrÃ cies per la seva visita", 80, 260);
+        g.drawString("Número Rebut:  " + MarkedCarExit.ticketTextField.getText(), 80, 80);
+        
+        g.drawString("Gràscies per la seva visita", 80, 260);
         g.drawLine(0, 45, 250, 45);
         g.drawString("REBUT DE SORTIDA", 80, 70);
         g.setFont(new Font("asdf", Font.PLAIN, 10));

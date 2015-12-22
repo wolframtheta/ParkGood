@@ -56,7 +56,7 @@ public class TicketFixedEntry implements Printable {
         g.drawString(FixedCarEntry.entryTimeLabel.getText(), 0, 110);
         g.drawString(FixedCarEntry.ticketLabel.getText(), 0, 150);
         g.setFont(new Font("asdf", Font.BOLD, 10));
-        g.drawString("AQUEST TICKET Ã‰S OBLIGATORI", 20, 170);
+        g.drawString("AQUEST TICKET ÉS OBLIGATORI", 20, 170);
         g.drawString("PRESENTARLO AL RETIRAR EL VEHICLE", 0, 180);
         g.setFont(new Font("asdf", Font.ITALIC, 7));
         g.drawString("EL PROPIETARI DEIXA", 110, 100);

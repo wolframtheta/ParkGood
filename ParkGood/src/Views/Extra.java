@@ -255,13 +255,15 @@ public class Extra extends javax.swing.JFrame {
        
         if (ExtraTable.getSelectedRow()== -1) JOptionPane.showMessageDialog(null, "Has de seleccionar una fila!");
         else {
-            int info = JOptionPane.showConfirmDialog(null, "Est√†s segur d'eliminar aquesta entrada", "Confirmaci√≥", JOptionPane.YES_NO_OPTION);
+            int info = JOptionPane.showConfirmDialog(null, "Est‡s segur d'eliminar aquesta entrada", "ConfirmaciÛ", JOptionPane.YES_NO_OPTION);
             if (info == JOptionPane.YES_OPTION) {
                 try {
                     Object a = ((int)ExtraTable.getValueAt(ExtraTable.getSelectedRow(), COL_ID) + MIN);
                     String query = "DELETE FROM `" + DBPlaces + "` WHERE `ID` = '" + a + "'";
                     st = connection.createStatement();
                     st.execute(query);
+                    
+                    
                     resetExtraTable();
                     createExtraTable();
                 } catch (SQLException ex) {
@@ -292,7 +294,7 @@ public class Extra extends javax.swing.JFrame {
         modelExtra.addColumn("ID");
         modelExtra.addColumn("Nom");
         modelExtra.addColumn("Cotxe");
-        modelExtra.addColumn("Matr√≠cula");
+        modelExtra.addColumn("MatrÌcula");
         modelExtra.addColumn("Altres");
         hideColumn(COL_ID, ExtraTable);
         hideColumn(COL_MORE, ExtraTable);

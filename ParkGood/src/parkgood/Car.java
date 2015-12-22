@@ -40,12 +40,11 @@ public class Car {
             FixedCarEntry.entryTimeLabel.setText(entryTime);
             FixedCarEntry.entryDateLabel.setText(formatDate2.format(date));
             fCE.setVisible(true);
-            
-            String query = "SELECT `ticket` FROM `" + DBEntry + "` ORDER BY `ticket` DESC LIMIT 1";
+            String query = "SELECT COUNT(ticket) FROM " + DBEntry + "";
             st = connection.createStatement();
             ResultSet res = st.executeQuery(query);
             while (res.next()) 
-                FixedCarEntry.ticketLabel.setText(res.getInt("ticket")+1 + "");
+                FixedCarEntry.ticketLabel.setText(res.getInt(1)+1 + "");
         }
         else {
             java.util.Date date = new java.util.Date();

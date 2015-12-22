@@ -102,7 +102,7 @@ public class FixedCarEntry extends javax.swing.JFrame {
 
         ticketLabel.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         ticketLabel.setForeground(new java.awt.Color(255, 0, 0));
-
+        
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("QUANTITAT PACTADA");

@@ -92,7 +92,7 @@ public class TicketSummaryExit implements Printable {
                 }
                 g.drawLine(0, 35 + i*10, 250, 35 + i*10);
                 g.setFont(new Font("asdf", Font.BOLD, 8));
-                g.drawString("Total cobrat: " + round(price, 2) + " â‚¬", 0, 35 + i*10 + 10);
+                g.drawString("Total cobrat: " + round(price, 2) + " €", 0, 35 + i*10 + 10);
             } catch (SQLException ex) {
                 Logger.getLogger(TicketSummaryExit.class.getName()).log(Level.SEVERE, null, ex);
             }

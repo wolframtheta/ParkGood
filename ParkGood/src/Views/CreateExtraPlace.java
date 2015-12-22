@@ -182,12 +182,15 @@ public class CreateExtraPlace extends javax.swing.JFrame {
         }
         if (!NameTextField.getText().equals("")) {
             try {
-                String query = "SELECT `ID`, COUNT(*) AS num FROM `" + DBPlaces + "` WHERE `ID` >= " + MIN + " AND `ID` <= " + MAX + " ORDER BY `ID` DESC LIMIT 1";
+                String query = "SELECT COUNT(*) AS num FROM `" + DBPlaces + "` WHERE `ID` >= " + MIN + " AND `ID` <= " + MAX + " ORDER BY `ID` DESC LIMIT 1";
                 st = connection.createStatement();
                 ResultSet res = st.executeQuery(query);
                 res.next();
                 int id = 0;
                 if (res.getInt("num") > 0) {
+                	query = "SELECT `ID` FROM `" + DBPlaces + "` WHERE `ID` >= " + MIN + " AND `ID` <= " + MAX + " ORDER BY `ID` DESC LIMIT 1";
+                	res = st.executeQuery(query);
+                    res.next();
                     id = res.getInt("ID");
                     ++id;
                 }

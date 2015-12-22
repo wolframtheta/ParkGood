@@ -146,7 +146,7 @@ public class Register extends javax.swing.JFrame {
                 res = st.executeQuery(query);
                 res.next();
                 if (res.getInt("user") <= 0) {
-                    query = "INSERT INTO `" + DBLogin + "` VALUES ('0', '" + userTextField.getText() + "', '" + passwordTextField.getText() + "', '0', '0', '0', '0', '0')";
+                    query = "INSERT INTO `" + DBLogin + "` VALUES ('0', '" + userTextField.getText() + "', '" + passwordTextField.getText() + "', '0', '0', '0', '0', '0','0')";
                     st.executeUpdate(query);
                     Settings.userTableCreate();
                     Settings.updateComboBox();

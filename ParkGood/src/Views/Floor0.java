@@ -7,6 +7,8 @@
 package Views;
 
 import static Views.InfoCar.*;
+import static parkgood.Main.connection;
+import static parkgood.Main.st;
 import static parkgood.Utilities.*;
 
 import java.awt.Color;
@@ -108,7 +110,16 @@ public class Floor0 extends javax.swing.JFrame {
         jLabel1.setText("PLANTA 0");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+            	try {
+            	 String query = "SELECT * FROM `" + DBLogin + "` WHERE `username` = '" + mainView.userConnected.getText() + "'";
+                 st = connection.createStatement();
+                 ResultSet res = st.executeQuery(query);
+                 res.next();
+                 if (res.getBoolean("extra_floor")) jLabel1MouseClicked(evt);
+            	}catch(SQLException ex) {
+            Logger.getLogger(Floor0.class.getName()).log(Level.SEVERE, null, ex);
+            
+            }
             }
         });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 200, 60));

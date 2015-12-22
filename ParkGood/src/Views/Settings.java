@@ -165,6 +165,7 @@ public class Settings extends javax.swing.JFrame {
         ExitCheckBox = new javax.swing.JCheckBox();
         AddDeleteCheckBox = new javax.swing.JCheckBox();
         UserComboBox = new javax.swing.JComboBox();
+        ExtraFloorCheckBox = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         PlacesCheckBox = new javax.swing.JCheckBox();
         UpdatePermissionsUser = new javax.swing.JButton();
@@ -419,6 +420,13 @@ public class Settings extends javax.swing.JFrame {
             }
         });
 
+        ExtraFloorCheckBox.setText("Extra");
+        ExtraFloorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExtraFloorCheckBoxActionPerformed(evt);
+            }
+        });
+        
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel11.setText("Permisos dels empleats");
 
@@ -457,10 +465,13 @@ public class Settings extends javax.swing.JFrame {
                             .addComponent(UpdatePermissionsUser)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(UserComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(19, 19, 19)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(SettingsCheckBox)
-                                    .addComponent(ExitCheckBox))))
+                                    .addComponent(ExitCheckBox)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(ExtraFloorCheckBox)))))
                         .addGap(56, 56, 56)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,7 +496,9 @@ public class Settings extends javax.swing.JFrame {
                     .addComponent(ExitCheckBox)
                     .addComponent(PlacesCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(DeleteCounterCheckBox)
+                .addComponent(ExtraFloorCheckBox))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UpdatePermissionsUser)
@@ -552,6 +565,7 @@ public class Settings extends javax.swing.JFrame {
                     ExitCheckBox.setSelected(res.getBoolean("exit"));
                     PlacesCheckBox.setSelected(res.getBoolean("edit_places"));
                     DeleteCounterCheckBox.setSelected(res.getBoolean("delete_counter"));
+                    ExtraFloorCheckBox.setSelected(res.getBoolean("extra_floor"));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
@@ -560,16 +574,19 @@ public class Settings extends javax.swing.JFrame {
         
     }//GEN-LAST:event_UserComboBoxActionPerformed
 
+   
+    
     private void UpdatePermissionsUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatePermissionsUserActionPerformed
         try {
-            int settings = 0, users = 0, exit = 0, edit = 0, delete = 0;
+            int settings = 0, users = 0, exit = 0, edit = 0, delete = 0, extra = 0;
             if (SettingsCheckBox.isSelected()) settings = 1;
             if (AddDeleteCheckBox.isSelected()) users = 1;
             if (ExitCheckBox.isSelected()) exit = 1;
             if (PlacesCheckBox.isSelected()) edit = 1;
             if (DeleteCounterCheckBox.isSelected()) delete = 1;
+            if (ExtraFloorCheckBox.isSelected()) extra = 1;
             System.out.print((String)UserComboBox.getSelectedItem());
-            String query = "UPDATE `" + DBLogin + "` SET `settings` = '" + settings + "', `add_delete_users` = '" + users + "', `exit` = '" + exit + "', `edit_places` = '" + edit + "' WHERE `username` = '" + (String)UserComboBox.getSelectedItem() +  "'";
+            String query = "UPDATE `" + DBLogin + "` SET `settings` = '" + settings + "', `add_delete_users` = '" + users + "', `exit` = '" + exit + "', `edit_places` = '" + edit + "', `extra_floor` = '" + extra + "' WHERE `username` = '" + (String)UserComboBox.getSelectedItem() +  "'";
             System.out.print(query);
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.executeUpdate();
@@ -604,7 +621,11 @@ public class Settings extends javax.swing.JFrame {
             Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_DeleteCounterButtonActionPerformed
+    }
+    private void ExtraFloorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        
+    }
+    //GEN-LAST:event_DeleteCounterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,6 +633,7 @@ public class Settings extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox AddDeleteCheckBox;
+    private javax.swing.JCheckBox ExtraFloorCheckBox;
     private javax.swing.JButton DeleteCounterButton;
     private javax.swing.JCheckBox DeleteCounterCheckBox;
     private javax.swing.JCheckBox ExitCheckBox;
@@ -624,7 +646,7 @@ public class Settings extends javax.swing.JFrame {
     private javax.swing.JTextField SecondNormalTextField;
     private javax.swing.JCheckBox SettingsCheckBox;
     private javax.swing.JButton UpdatePermissionsUser;
-    static javax.swing.JComboBox UserComboBox;
+    public static javax.swing.JComboBox UserComboBox;
     private javax.swing.JButton deleteUserButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

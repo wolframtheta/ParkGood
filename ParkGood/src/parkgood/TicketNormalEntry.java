@@ -6,6 +6,7 @@
 
 package parkgood;
 
+import Views.MarkedCarExit;
 import Views.NormalCarEntry;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -42,7 +43,7 @@ public class TicketNormalEntry implements Printable {
         g.setFont(new Font("asdf", Font.PLAIN, 9));
         g.drawString("C/ Galileo, 298, Barcelona", 110, 12);
         g.drawString("08028 Tel 93 490 72 67", 110, 23);
-        g.drawString("Resguard dipÃ²sit", 110, 70);
+        g.drawString("Resguard dipòsit", 110, 70);
         g.drawString("de vehicle", 120, 80);
         g.drawLine(0, 30, 250, 30);
         g.setFont(new Font("asdf", Font.PLAIN, 10));
@@ -54,7 +55,7 @@ public class TicketNormalEntry implements Printable {
         g.drawString(NormalCarEntry.entryTime.getText(), 0, 110);
         g.drawString(NormalCarEntry.entryTicketLabel.getText(), 0, 150);
         g.setFont(new Font("asdf", Font.BOLD, 10));
-        g.drawString("AQUEST TICKET Ã‰S OBLIGATORI", 20, 170);
+        g.drawString("AQUEST TICKET ÉS OBLIGATORI", 20, 170);
         g.drawString("PRESENTARLO AL RETIRAR EL VEHICLE", 0, 180);
         g.setFont(new Font("asdf", Font.ITALIC, 8));
         g.drawString("EL PROPIETARI DEIXA", 110, 100);

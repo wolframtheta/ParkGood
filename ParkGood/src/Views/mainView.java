@@ -49,43 +49,70 @@ public class mainView extends javax.swing.JFrame {
     public mainView() {
         initComponents();
         
-        getRootPane().addKeyListener(new KeyListener() {
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "F1");
+        getRootPane().getActionMap().put("F1", new AbstractAction() {
 			
 			@Override
-			public void keyTyped(KeyEvent e) {}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				switch (e.getKeyCode()) {
-				case KeyEvent.VK_F1:
-					normalButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F2:
-					bigButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F4:
-					fixedButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F5:
-					exitCarsButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F6:
-					exitFixedButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F8:
-					exitMarkedButtonActionPerformed();
-					break;
-				case KeyEvent.VK_F11:
-					printTicketButtonActionPerformed();
-					break;
-				default:
-					break;
-				}
+			public void actionPerformed(ActionEvent e) {
+				normalButtonActionPerformed();
+				
 			}
+		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F2, 0), "F2");
+        getRootPane().getActionMap().put("F2", new AbstractAction() {
 			
 			@Override
-			public void keyPressed(KeyEvent e) {}
+			public void actionPerformed(ActionEvent e) {
+				bigButtonActionPerformed();
+				
+			}
 		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F4, 0), "F4");
+        getRootPane().getActionMap().put("F4", new AbstractAction() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fixedButtonActionPerformed();
+				
+			}
+		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0), "F11");
+        getRootPane().getActionMap().put("F11", new AbstractAction() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				printTicketButtonActionPerformed();
+				
+			}
+		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "F5");
+        getRootPane().getActionMap().put("F5", new AbstractAction() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				exitCarsButtonActionPerformed();
+				
+			}
+		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F8, 0), "F8");
+        getRootPane().getActionMap().put("F8", new AbstractAction() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				exitMarkedButtonActionPerformed();
+				
+			}
+		});
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F6, 0), "F6");
+        getRootPane().getActionMap().put("F6", new AbstractAction() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				exitFixedButtonActionPerformed();
+				
+			}
+		});
+        
         printTicketButton.setText("<html><p>Imprimir ticket</p><p>a escollir F11</p></html>"); 
         exitCarsButton.setText("<html><p>Normal</p><p>Gran</p><p>Especial F5</p></html>");
         modelActive = new DefaultTableModel();
