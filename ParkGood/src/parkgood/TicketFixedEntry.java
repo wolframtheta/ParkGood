@@ -44,7 +44,7 @@ public class TicketFixedEntry implements Printable {
         g.setFont(new Font("asdf", Font.PLAIN, 9));
         g.drawString("C/ Galileu, 298, Barcelona", 110, 12);
         g.drawString("08028 Tel 93 490 72 67", 110, 23);
-        g.drawString("Resguard dipÃ²sit", 110, 70);
+        g.drawString("Resguard dipòsit", 110, 70);
         g.drawString("de vehicle", 120, 80);
         g.drawLine(0, 30, 250, 30);
         g.setFont(new Font("asdf", Font.PLAIN, 10));
@@ -63,7 +63,7 @@ public class TicketFixedEntry implements Printable {
         g.drawString("LES CLAUS DEL VEHICLE", 110, 110);
         g.drawString("COBRAR TARIFA", 130, 130);
         g.setFont(new Font("asdf", Font.BOLD + Font.ITALIC, 13));
-        g.drawString(FixedCarEntry.priceTextField.getText() + " â‚¬", 150, 150);
+        g.drawString(FixedCarEntry.priceTextField.getText() + " €", 150, 150);
         g.setFont(new Font("asdf", Font.PLAIN, 11));
         g.drawString("TICKET ENTRADA", 100, 50);
         /* tell the caller that this page is part of the printed document */

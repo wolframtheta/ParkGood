@@ -80,9 +80,9 @@ public class TicketFixedExit  implements Printable {
         } catch (SQLException ex) {
             Logger.getLogger(TicketFixedExit.class.getName()).log(Level.SEVERE, null, ex);
         }
-        g.drawString(Utilities.round(Double.parseDouble(FixedCarExit.priceLabel.getText()) - d, 2) + " ‚Ç¨", 0, 200); //%IVA
-        g.drawString(FixedCarExit.priceLabel.getText() + " ‚Ç¨", 0, 245); //FINAL IMPORT   
-        g.drawString(d + " ‚Ç¨", 0, 160);
+        g.drawString(Utilities.round(Double.parseDouble(FixedCarExit.priceLabel.getText()) - d, 2) + " Ä", 0, 200); //%IVA
+        g.drawString(FixedCarExit.priceLabel.getText() + " Ä", 0, 245); //FINAL IMPORT   
+        g.drawString(d + " Ä", 0, 160);
         g.setFont(new Font("asdf", Font.PLAIN, 8)); 
         g.drawString("(IVA Incl√≤s)", 0, 230);
         g.drawLine(0, 250, 250, 250);

@@ -62,8 +62,8 @@ public class TicketExit implements Printable {
         g.drawString("Telf: 93 490 72 67", 130, 34);
         g.drawString("GARATGE SALA ROSTES, S.L.", 0, 25);
         g.drawString("CIF. B60908795", 0, 35);
-        g.drawString("NÃºmero Rebut:  " + NormalCarExit.ticketTextField.getText(), 80, 80);
-        g.drawString("GrÃ cies per la seva visita", 80, 260);
+        g.drawString("Número Rebut:  " + NormalCarExit.ticketTextField.getText(), 80, 80);
+        g.drawString("Gràcies per la seva visita", 80, 260);
         g.drawLine(0, 45, 250, 45);
         g.drawString("REBUT DE SORTIDA", 80, 70);
         g.setFont(new Font("asdf", Font.PLAIN, 10));
@@ -87,11 +87,11 @@ public class TicketExit implements Printable {
         } catch (SQLException ex) {
             Logger.getLogger(TicketExit.class.getName()).log(Level.SEVERE, null, ex);
         }
-        g.drawString(Utilities.round(Double.parseDouble(NormalCarExit.priceLabel.getText()) - d, 2) + " â‚¬", 0, 200);
-        g.drawString(NormalCarExit.priceLabel.getText() + " â‚¬", 0, 245);
-        g.drawString(d + " â‚¬", 0, 160);
+        g.drawString(Utilities.round(Double.parseDouble(NormalCarExit.priceLabel.getText()) - d, 2) + " €", 0, 200);
+        g.drawString(NormalCarExit.priceLabel.getText() + " €", 0, 245);
+        g.drawString(d + " €", 0, 160);
         g.setFont(new Font("asdf", Font.PLAIN, 8)); 
-        g.drawString("(IVA InclÃ²s)", 0, 230);
+        g.drawString("(IVA Inclós)", 0, 230);
         g.drawLine(0, 250, 250, 250);
         return PAGE_EXISTS;
     }
